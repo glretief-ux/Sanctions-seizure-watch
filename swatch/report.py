@@ -116,7 +116,7 @@ def write_all(res, out_dir, cfg, demo=False):
     open(os.path.join(out_dir, "data.js"), "w", encoding="utf-8").write(
         "window.SWD=" + json.dumps(data, ensure_ascii=False, separators=(",", ":"), default=lambda x: None) + ";")
     # the page and its map data sit next to data.js so GitHub Pages serves them from /docs
-    for f in ("index.html", "world.js", "registry.js", "goods.js", "pccp-logo-banner.jpg"):
+    for f in ("index.html", "world.js", "registry.js", "goods.js", "pccp-logo-banner.jpg", "byte.js", "byte-config.js"):
         src = os.path.join(ROOT, "web", f)
         if os.path.exists(src):
             shutil.copy2(src, os.path.join(out_dir, f))
@@ -137,7 +137,7 @@ def write_empty(out_dir, cfg, demo=False):
             "first": None, "demo": bool(demo), "geo": {"c": {}, "p": {}}, "events": [], "model": analyze.risk_model_description(cfg),
             "alerts": [], "corridors": [], "vessels": [], "hotspots": [], "indicators": analyze.LABEL}
     open(os.path.join(out_dir, "data.js"), "w", encoding="utf-8").write("window.SWD=" + json.dumps(data, ensure_ascii=False) + ";")
-    for f in ("index.html", "world.js", "registry.js", "goods.js", "pccp-logo-banner.jpg"):
+    for f in ("index.html", "world.js", "registry.js", "goods.js", "pccp-logo-banner.jpg", "byte.js", "byte-config.js"):
         src = os.path.join(ROOT, "web", f)
         if os.path.exists(src):
             shutil.copy2(src, os.path.join(out_dir, f))
